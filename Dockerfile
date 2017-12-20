@@ -18,10 +18,12 @@ ENV MONGO_OPLOG_URL=mongodb://lairdb:27017/local
 
 CMD mkdir /scripts
 COPY ./docker-entrypoint.sh /scripts/
+COPY ./env_secrets_expand.sh /scripts/
 COPY ./wait.sh /scripts/
 COPY ./startup.js /root/app/bundle/programs/server/app/server/
 RUN chown 501:501 /root/app/bundle/programs/server/app/server/startup.js
-CMD chmod +x /scripts/docker-entrypoint.sh 
+CMD chmod +x /scripts/docker-entrypoint.sh
+CMD chmod +x /scripts/env_secrets_expand.sh 
 RUN chmod +x /scripts/wait.sh
 
 

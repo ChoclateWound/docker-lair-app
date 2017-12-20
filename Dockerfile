@@ -1,9 +1,9 @@
-FROM node:carbon
+FROM node:8.2.1
 
 EXPOSE 11014
 
 WORKDIR /root/app
-RUN curl https://install.meteor.com/ | sh
+RUN curl "https://install.meteor.com/?release=1.5.1" | sh
 RUN curl -SLO "https://github.com/lair-framework/lair/releases/download/v2.5.0/lair-v2.5.0-linux-amd64.tar.gz" \
     && tar -zxf lair-v2.5.0-linux-amd64.tar.gz \
     && cd bundle/programs/server \
